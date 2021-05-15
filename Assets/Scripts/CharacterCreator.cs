@@ -36,10 +36,10 @@ public class CharacterCreator : MonoBehaviour {
         }
 
         if (torso != null)
-            c.GetComponent<EquipmentManager>().AddItem(torso, new Color(GetColor(0, 255), GetColor(0, 255), GetColor(0, 255), 255));
+            c.GetComponent<EquipmentManager>().AddItem(torso, Random.ColorHSV());
 
         if(head != null) {
-            c.GetComponent<EquipmentManager>().AddItem(head, new Color(GetColor(0, 255), GetColor(0, 255), GetColor(0, 255), 255));
+            c.GetComponent<EquipmentManager>().AddItem(head, Random.ColorHSV());
         }
 
         c.GetComponentInChildren<SkinnedMeshRenderer>().materials = GenerateMaterials(c);
@@ -47,23 +47,17 @@ public class CharacterCreator : MonoBehaviour {
         return c;
     }
 
-    private float GetColor(int min, int max) {
-        return Random.Range(min, max) / 255.0f;
-    }
-
     private Material[] GenerateMaterials(GameObject c) {
         Material[] materials = c.GetComponentInChildren<SkinnedMeshRenderer>().materials;
         
         materials[3].color = skinColor[Random.Range(0, skinColor.Length)]; // skin
-        materials[2].color = new Color(GetColor(0, 255), GetColor(0, 255), GetColor(0, 255), 255 ); // shoes
+        materials[2].color = Random.ColorHSV(); // shoes
 
-        materials[5].color = new Color(GetColor(0, 255), GetColor(0, 255), GetColor(0, 255), 255); // shirt 
-        materials[0].color = new Color(GetColor(0, 255), GetColor(0, 255), GetColor(0, 255), 255); // shorts
+        materials[5].color = Random.ColorHSV(0, 1, 0.8f, 1, 0.8f, 1); // shirt 
+        materials[0].color = Random.ColorHSV(0,1,0.8f,1, 0.8f, 1); // shorts
 
-
-        materials[1].color = Random.Range(0, 10) > 5 ? materials[3].color : materials[0].color; // long
-
-        materials[4].color = Random.Range(0, 10) > 5 ? materials[3].color : materials[5].color; ; // sleeves
+        materials[1].color = Random.Range(0, 10) > 5 ? materials[3].color : materials[0].color; // long - manga corta o manga larga
+        materials[4].color = Random.Range(0, 10) > 5 ? materials[3].color : materials[5].color; ; // sleeves - pantalon corto o pantalon largo
 
 
         return materials;
