@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 1cd6bb83c32e2784b87d2a3a1190d98b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Back Issues BB
+  fontNames:
+  - Back Issues BB
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 72e36efcbc2401048baeff3c9c70e467, type: 3}
+  - {fileID: 12800000, guid: fbbdc3ed15c526247804e1290dbfb5d9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
