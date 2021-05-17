@@ -11,6 +11,7 @@ public class GameEvents : MonoBehaviour {
     public event Action OnGameWon;
     public event Action OnGameLost;
     public event Action OnNPCDestroyed;
+    public event Action OnPuzzleSolved;
 
     public void GameWonTrigger() {
         if (OnGameWon != null) {
@@ -27,6 +28,12 @@ public class GameEvents : MonoBehaviour {
     public void NPCDestroyedTrigger() {
         if(OnNPCDestroyed != null) {
             OnNPCDestroyed.Invoke();
+        }
+    }
+
+    public void PuzzleSolvedTrigger() {
+        if(OnPuzzleSolved != null) {
+            OnPuzzleSolved.Invoke();
         }
     }
 }

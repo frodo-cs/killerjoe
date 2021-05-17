@@ -4,45 +4,45 @@ using UnityEngine;
 public class NPC : MonoBehaviour {
 
 
-    private GameObject[] waypoint;
+    private GameObject payingArea;
+    private GameObject exit;
     private Transform targetWaypoint;
     private Animator animator;
-    private float minDistance = 0.5f;
+    private float minDistance = 0.1f;
     private float speed = 2.0f;
-    private int waypointIndex = 0;
-    private bool paying = false;
     private bool enemy = false;
 
     private void Awake() {
-        waypoint = new GameObject[3];
-        // waypoint[waypointIndex] = GameObject.FindGameObjectWithTag("Waiting");
-        waypoint[waypointIndex] = GameObject.FindGameObjectWithTag("Payment");
-        waypoint[waypointIndex + 1] = GameObject.FindGameObjectWithTag("Exit");
+        payingArea = GameObject.FindGameObjectWithTag("Payment");
+        exit = GameObject.FindGameObjectWithTag("Exit");
         animator = GetComponent<Animator>();
     }
 
     private void Start() {
-        targetWaypoint = waypoint[waypointIndex].GetComponent<Transform>();
+        targetWaypoint = payingArea.GetComponent<Transform>();
+        GameEvents.current.OnPuzzleSolved += GoToExit;
     }
 
     private void Update() {
         float movementStep = speed * Time.deltaTime;
         float distance = Vector3.Distance(transform.position, targetWaypoint.position);
 
-        if(!OnTarget(distance) && !targetWaypoint.GetComponent<Waypoint>().occupied) {
+        if (!OnTarget(distance)) {
             Move(movementStep);
-        } else if (!OnTarget(distance) && targetWaypoint.GetComponent<Waypoint>().occupied) {
+        } else if (targetWaypoint.GetComponent<Waypoint>().occupied && !OnTarget(distance)) {
             Wait();
-        } else {
-            if(waypointIndex == 0) {
+        } else if (OnTarget(distance)) {
+            if (targetWaypoint == payingArea.GetComponent<Transform>()) {
                 Pay();
-                targetWaypoint = waypoint[++waypointIndex].GetComponent<Transform>();
-                GameEvents.current.NPCDestroyedTrigger();
-            } else {            
+            } else {
                 Destroy(gameObject);
             }
         }
+    }
 
+    private void GoToExit() {
+        targetWaypoint = exit.GetComponent<Transform>();
+        GameEvents.current.NPCDestroyedTrigger();
     }
 
     private void Move(float m) {
