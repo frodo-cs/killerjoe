@@ -709,7 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e29f94f28d44d2f41b57fd5653dff00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 6646172186928015115, guid: e790755f2ce2eb6448a96cd87e8f1297,
+  characterPrefab: {fileID: 7545319079085096671, guid: e790755f2ce2eb6448a96cd87e8f1297,
     type: 3}
   head:
   - {fileID: -8133392235890547217, guid: 5b532150737ea0a4cb3a3f80088d2b00, type: 3}
