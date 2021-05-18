@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour {
 
     [SerializeField] MeshManager meshManager;
+    public List<KeyValuePair<Equipable, Color>> items;
+    public Material[] materials;
 
     private void Awake() {
+        items = new List<KeyValuePair<Equipable, Color>>();
         meshManager = GetComponent<MeshManager>();
     }
 
@@ -15,6 +19,7 @@ public class EquipmentManager : MonoBehaviour {
     }
 
     public void AddItem(Equipable item, Color color) {
+        items.Add(new KeyValuePair<Equipable, Color>(item, color));
         meshManager.AddMesh(item, color);
     }
 

@@ -523,7 +523,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6193696630abf2f4c92d055ed802acce, type: 3}
   - {fileID: 21300000, guid: 0f7a445ab80d64d46921bd4e008ea7b8, type: 3}
   - {fileID: 21300000, guid: 1f039d98cc7bb8949bd448be3b931097, type: 3}
-  - {fileID: 21300000, guid: 9bb0ebd64881a7842a64c8a6220a4800, type: 3}
   storyText: {fileID: 1194889652}
   buttonText: {fileID: 361129404}
   text:
