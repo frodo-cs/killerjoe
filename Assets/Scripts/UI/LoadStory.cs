@@ -22,10 +22,11 @@ namespace Assets.Scripts.Story {
         }
 
         public void NextFrame() {
-            if (current < sprites.Count) {
+            if (current < text.Count) {
                 current++;
                 storyText.text = text[current - 1];
-                CreateFrame();
+                if(current <= sprites.Count)
+                    CreateFrame();
                 if(current == sprites.Count) {
                     buttonText.text = "< Start >";
                 }
