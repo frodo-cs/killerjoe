@@ -1,8 +1,20 @@
 fileFormatVersion: 2
-guid: ee56e9a64692db041bd8eacdcea575d3
+guid: 33fc00a5492efd945ac1d4839bb1ca57
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
+  - first:
+      74: 1661501409589519222
+    second: Apron|Armature|mixamo.com|Layer0
+  - first:
+      74: 3748598288519413870
+    second: Apron|CameraAction
+  - first:
+      74: -4323603765675651478
+    second: Apron|Male.001Action
+  - first:
+      74: -4333581745633552563
+    second: Apron|Spot.001Action
   - first:
       74: -203655887218126122
     second: mixamo.com

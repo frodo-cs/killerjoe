@@ -16,7 +16,7 @@ namespace Assets.Scripts.Story {
         private int width;
 
         void Start() {
-            width = Screen.width / 3;
+            width = Screen.width / sprites.Count;
             storyText.text = text[0];
             CreateFrame();
         }
@@ -37,9 +37,7 @@ namespace Assets.Scripts.Story {
         private void CreateFrame() {
             GameObject pic = Instantiate(frame);
             pic.transform.SetParent(gameObject.transform);
-            Debug.Log(Screen.height / 2);
-            Debug.Log(Screen.height / 3); 
-            pic.transform.position = new Vector2(Screen.width / 4 * current, (8 / 6 + 4) * Screen.height / 8);
+            pic.transform.position = new Vector2(Screen.width / (sprites.Count + 1) * current, (8 / 6 + 4) * Screen.height / 8);
             pic.GetComponent<Picture>().frame.rectTransform.sizeDelta = new Vector2(width, width + 30);
             pic.GetComponent<Picture>().image.rectTransform.sizeDelta = new Vector2(width - 20, width - 20);
             pic.GetComponent<Picture>().image.sprite = sprites[current - 1];

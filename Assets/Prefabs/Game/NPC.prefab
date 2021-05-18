@@ -1323,9 +1323,11 @@ GameObject:
   - component: {fileID: 640158933870867573}
   - component: {fileID: 2674650115276889460}
   - component: {fileID: 139239286421483505}
+  - component: {fileID: -2427460732329053530}
+  - component: {fileID: 5288057625967275549}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1402,6 +1404,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695133e090edf2a438412b2a4ffcd268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &-2427460732329053530
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545319079085096671}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &5288057625967275549
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545319079085096671}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.27
+  m_Height: 1.79
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.92, z: 0}
 --- !u!1 &7581856765600455237
 GameObject:
   m_ObjectHideFlags: 0
