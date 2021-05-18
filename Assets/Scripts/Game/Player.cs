@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public static bool SolvingPuzzle = false;
     [SerializeField] Waypoint waypoint;
 
     private void Update() {

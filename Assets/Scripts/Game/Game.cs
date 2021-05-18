@@ -13,6 +13,7 @@ public class Game : MonoBehaviour {
     private void Start() {
         NPCs = new List<GameObject>();
         GameEvents.current.OnNPCDestroyed += AddNPC;
+        Cursor.visible = false;
         AddNPC();
     }
 

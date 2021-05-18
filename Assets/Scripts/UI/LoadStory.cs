@@ -1,26 +1,36 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Story {
     public class LoadStory : MonoBehaviour {
 
         [SerializeField] List<Sprite> sprites;
+        [SerializeField] TextMeshProUGUI storyText;
+        [SerializeField] TextMeshProUGUI buttonText;
+        [SerializeField] List<string> text;
         [SerializeField] GameObject frame;
         private int current = 1;
         private int width;
 
         void Start() {
             width = Screen.width / 3;
+            storyText.text = text[0];
             CreateFrame();
         }
 
         public void NextFrame() {
             if (current < sprites.Count) {
                 current++;
+                storyText.text = text[current - 1];
                 CreateFrame();
+                if(current == sprites.Count) {
+                    buttonText.text = "< Start >";
+                }
             } else {
-                // Load game
+                SceneManager.LoadScene("Game");
             }
         }
 
