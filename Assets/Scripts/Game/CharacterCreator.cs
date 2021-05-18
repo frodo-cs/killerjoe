@@ -42,7 +42,7 @@ public class CharacterCreator : MonoBehaviour {
             c.GetComponent<EquipmentManager>().AddItem(head, Random.ColorHSV());
         }
 
-        c.GetComponentInChildren<SkinnedMeshRenderer>().materials = GenerateMaterials(c);
+        c.GetComponent<EquipmentManager>().materials = c.GetComponentInChildren<SkinnedMeshRenderer>().materials = GenerateMaterials(c);
 
         return c;
     }
