@@ -7,7 +7,21 @@ public class PauseMenu : MonoBehaviour {
     [SerializeField] GameObject pauseUI;
     [SerializeField] GameObject GUI;
     [SerializeField] GameObject controls;
+    [SerializeField] GameObject page;
     private bool controlsEnabled = false;
+
+    private void Start() {
+        GameEvents.current.OnPuzzleSolved += HidePage;
+        GameEvents.current.OnPayingPosition += ShowPage;
+    }
+
+    private void ShowPage() {
+        page.SetActive(true);
+    }
+
+    private void HidePage() {
+        page.SetActive(false);
+    }
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape) && !Player.SolvingPuzzle && !controlsEnabled) {
