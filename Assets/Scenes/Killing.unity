@@ -260,7 +260,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Se palm\xF3"
+  m_text: Asesinado
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 1466109968}
   - component: {fileID: 1466109967}
   - component: {fileID: 1466109966}
+  - component: {fileID: 1466109970}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -529,6 +530,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1466109970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466109965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d27f97891bc5a42b5a6cf0b6ffaaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 543577179}
 --- !u!1 &1626139148
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,7 +790,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.2
+    scalar: 1
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -5756,18 +5770,6 @@ Transform:
   m_Father: {fileID: 1745617343116046832}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &139239286340925373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7545319079139567251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 695133e090edf2a438412b2a4ffcd268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &159920988323580082
 GameObject:
   m_ObjectHideFlags: 0
@@ -5904,6 +5906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshManager: {fileID: 2674650115339584824}
+  materials: []
 --- !u!114 &640158934403581170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5917,6 +5920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshManager: {fileID: 2674650114718969331}
+  materials: []
 --- !u!1 &708098416332992725
 GameObject:
   m_ObjectHideFlags: 0
@@ -8287,7 +8291,7 @@ GameObject:
   - component: {fileID: 3827399709377095251}
   - component: {fileID: 640158933815995449}
   - component: {fileID: 2674650115339584824}
-  - component: {fileID: 139239286340925373}
+  - component: {fileID: 7545319079139567252}
   m_Layer: 0
   m_Name: Cajero
   m_TagString: NPC
@@ -8295,6 +8299,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7545319079139567252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545319079139567251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5b36a21f03e3846bdb2c63fa4fbf4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &7545319079592676952
 GameObject:
   m_ObjectHideFlags: 0
@@ -8307,6 +8324,7 @@ GameObject:
   - component: {fileID: 3827399709997452952}
   - component: {fileID: 640158934403581170}
   - component: {fileID: 2674650114718969331}
+  - component: {fileID: 7545319079592676953}
   m_Layer: 0
   m_Name: Victima
   m_TagString: NPC
@@ -8314,6 +8332,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7545319079592676953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545319079592676952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b81dcd98df46f945be2f1e6af764f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &7581856766116276930
 GameObject:
   m_ObjectHideFlags: 0
