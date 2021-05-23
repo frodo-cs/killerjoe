@@ -10,5 +10,4 @@ public class Player : MonoBehaviour {
             GameEvents.current.PuzzleSolvedTrigger();
         }
     }
-
 }

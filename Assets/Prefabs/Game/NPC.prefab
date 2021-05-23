@@ -1380,6 +1380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshManager: {fileID: 2674650115276889460}
+  materials: []
 --- !u!114 &2674650115276889460
 MonoBehaviour:
   m_ObjectHideFlags: 0
