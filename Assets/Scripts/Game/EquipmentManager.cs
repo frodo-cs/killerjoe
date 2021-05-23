@@ -23,6 +23,10 @@ public class EquipmentManager : MonoBehaviour {
         meshManager.AddMesh(item, color);
     }
 
+    public void AddMaterials(Material[] materials) {
+        this.materials = materials;
+    }
+
     public void RemoveItem(Equipable item) {
         meshManager.RemoveMesh(item.Type.ToString());
     }
