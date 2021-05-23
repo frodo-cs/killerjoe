@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour {
     private float minDistance = 0.1f;
     private float speed = 2.0f;
     private bool enemy = false;
+    private bool payingTriggered = false;
 
     private void Awake() {
         payingArea = GameObject.FindGameObjectWithTag("Payment");
@@ -28,13 +29,22 @@ public class NPC : MonoBehaviour {
         float distance = Vector3.Distance(transform.position, targetWaypoint.position);
 
         if (!OnTarget(distance)) {
+            if (transform.rotation.y < 0.707)
+                transform.Rotate(Vector3.up * movementStep * 100);
             Move(movementStep);
         } else if (targetWaypoint.GetComponent<Waypoint>().occupied && !OnTarget(distance)) {
             Wait();
         } else if (OnTarget(distance)) {
             if (targetWaypoint == payingArea.GetComponent<Transform>()) {
+                if (transform.rotation.y >= 0.2)
+                    transform.Rotate(Vector3.down * movementStep * 70);
+                else if (!payingTriggered) {
+                    GameEvents.current.PayingPositionTrigger();
+                    payingTriggered = true;
+                }  
                 Pay();
             } else {
+                GameEvents.current.NPCDestroyedTrigger();
                 Destroy(gameObject);
             }
         }
@@ -42,7 +52,7 @@ public class NPC : MonoBehaviour {
 
     private void GoToExit() {
         targetWaypoint = exit.GetComponent<Transform>();
-        GameEvents.current.NPCDestroyedTrigger();
+       // GameEvents.current.NPCDestroyedTrigger();
     }
 
     private void Move(float m) {

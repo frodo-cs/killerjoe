@@ -11,10 +11,17 @@ public class GameEvents : MonoBehaviour {
     public event Action OnGameLost;
     public event Action OnNPCDestroyed;
     public event Action OnPuzzleSolved;
+    public event Action OnPayingPosition;
 
     public void GameWonTrigger() {
         if (OnGameWon != null) {
             OnGameWon.Invoke();
+        }
+    }
+
+    public void PayingPositionTrigger() {
+        if (OnPayingPosition != null) {
+            OnPayingPosition.Invoke();
         }
     }
 
