@@ -5,12 +5,14 @@ using UnityEngine;
 public class TextoMuerte : MonoBehaviour
 {
     [SerializeField] GameObject text;
-
+    AudioSource soundWellDone;
     // Start is called before the first frame update
     void Start()
     {
         text.SetActive(false);
-        StartCoroutine(Waiting(2f));
+        soundWellDone = GetComponent<AudioSource>();
+        StartCoroutine(Waiting(1.3f));
+
     }
 
     // Update is called once per frame
@@ -24,5 +26,7 @@ public class TextoMuerte : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         text.SetActive(true);
+        soundWellDone.Play();
+
     }
 }
