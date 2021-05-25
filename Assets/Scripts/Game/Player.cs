@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
 
     public static bool SolvingPuzzle = false;
     [SerializeField] Waypoint waypoint;
+    [SerializeField] float maxTime = 10f;
+    private float time;
 
     private void Start() {
         GameEvents.current.OnPuzzleSolved += PuzzleSolved;
