@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour {
     [SerializeField] GameObject GUI;
     [SerializeField] GameObject controls;
     [SerializeField] GameObject page;
+    [SerializeField] GameObject inputField;
     private bool controlsEnabled = false;
 
     private void Start() {
@@ -17,9 +18,11 @@ public class PauseMenu : MonoBehaviour {
 
     private void ShowPage() {
         page.SetActive(true);
+        inputField.SetActive(true);
     }
 
     private void HidePage() {
+        inputField.SetActive(false);
         page.SetActive(false);
     }
 
