@@ -867,8 +867,6 @@ MonoBehaviour:
   controls: {fileID: 2075311896}
   credits: {fileID: 1097797003}
   menu: {fileID: 884805138}
-  controlsEnabled: 0
-  creditsEnabled: 0
 --- !u!1 &884805138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,6 +1095,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Sound
 
+    Bit Orchestra
+
 
 
 '
@@ -1324,7 +1324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1097797004
 RectTransform:
   m_ObjectHideFlags: 0
