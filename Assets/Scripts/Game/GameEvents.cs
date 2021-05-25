@@ -8,7 +8,9 @@ public class GameEvents : MonoBehaviour {
     }
 
     public event Action OnGameWon;
-    public event Action OnGameLost;
+    public event Action OnGameLostTime;
+    public event Action OnGameLostAssassin;
+    public event Action OnGameLostBoss;
     public event Action OnNPCDestroyed;
     public event Action OnPuzzleSolved;
     public event Action OnPayingPosition;
@@ -25,9 +27,21 @@ public class GameEvents : MonoBehaviour {
         }
     }
 
-    public void GameLostTrigger() {
-        if (OnGameLost != null) {
-            OnGameLost.Invoke();
+    public void GameLostTimeTrigger() {
+        if (OnGameLostTime != null) {
+            OnGameLostTime.Invoke();
+        }
+    }
+
+    public void GameLostAssasinTrigger() {
+        if (OnGameLostAssassin != null) {
+            OnGameLostAssassin.Invoke();
+        }
+    }
+
+    public void GameLostBossTrigger() {
+        if (OnGameLostBoss != null) {
+            OnGameLostBoss.Invoke();
         }
     }
 

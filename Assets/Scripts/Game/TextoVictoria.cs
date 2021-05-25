@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TextoVictoria : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class TextoVictoria : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Menu() {
+        Destroy(GameObject.FindGameObjectWithTag("Game"));
+        SceneManager.LoadScene("Menu");
     }
 
     //wait for 2 seconds

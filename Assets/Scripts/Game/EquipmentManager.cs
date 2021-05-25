@@ -23,8 +23,8 @@ public class EquipmentManager : MonoBehaviour {
         meshManager.AddMesh(item, color);
     }
 
-    public void AddMaterials(Material[] materials) {
-        this.materials = materials;
+    public void AddMaterials() {
+        GetComponentInChildren<SkinnedMeshRenderer>().materials = materials;
     }
 
     public void RemoveItem(Equipable item) {

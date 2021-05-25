@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TextoMuerte : MonoBehaviour
 {
@@ -21,6 +22,15 @@ public class TextoMuerte : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Return() {
+        SceneManager.LoadScene("Game");
+    }
+
+    public void Menu() {
+        Destroy(GameObject.FindGameObjectWithTag("Game"));
+        SceneManager.LoadScene("Menu");
     }
 
     //wait for 2 seconds

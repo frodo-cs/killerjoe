@@ -14,4 +14,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/CajeroMataAsesino.unity
+    guid: 142fa898a8c1b4646a45408031707401
+  - enabled: 1
+    path: Assets/Scenes/CajeroMataCliente.unity
+    guid: 3eefcd496a002f844b4f125e92501692
+  - enabled: 1
+    path: Assets/Scenes/CajeroMataJefe.unity
+    guid: 4d12f51bab7054a4099f7c6f480b165e
+  - enabled: 1
+    path: Assets/Scenes/CajeroPerdonaAsesino.unity
+    guid: 4139fd1f2ac62ff42ad3e6d5f68fc589
+  - enabled: 1
+    path: Assets/Scenes/CajeroPerdonaCliente.unity
+    guid: 4fc4a4c5dd1c3634f9dc2dd35630b0b2
+  - enabled: 1
+    path: Assets/Scenes/CajeroPerdonaJefe.unity
+    guid: 429e7a5e18e95d64eb985fb8336ec592
+  - enabled: 1
+    path: Assets/Scenes/CajeroPierdeTiempo.unity
+    guid: 3fc197e2539bd0b4ba381615e68c90af
   m_configObjects: {}
