@@ -557,8 +557,8 @@ GameObject:
   - component: {fileID: 1466109968}
   - component: {fileID: 1466109967}
   - component: {fileID: 1466109966}
-  - component: {fileID: 1466109970}
   - component: {fileID: 1466109971}
+  - component: {fileID: 1466109970}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1466109965}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92d27f97891bc5a42b5a6cf0b6ffaaa8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f40bd3d439bb4549a46fba0bd79c5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 543577179}
@@ -669,7 +669,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b88dbe65e7d50fa468abba0b756e8602, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 376cedd70a3287f42a623da5ffb81733, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
