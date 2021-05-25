@@ -5,11 +5,13 @@ using UnityEngine;
 public class TextoMuerte : MonoBehaviour
 {
     [SerializeField] GameObject text;
+    [SerializeField] GameObject text1;
     AudioSource soundWellDone;
     // Start is called before the first frame update
     void Start()
     {
         text.SetActive(false);
+        text1.SetActive(false);
         soundWellDone = GetComponent<AudioSource>();
         StartCoroutine(Waiting(1.3f));
 
@@ -28,5 +30,12 @@ public class TextoMuerte : MonoBehaviour
         text.SetActive(true);
         soundWellDone.Play();
 
-    }
+        while (true)
+        {
+            text1.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+            text1.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+        }
+      }
 }
