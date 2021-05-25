@@ -41,13 +41,30 @@ public class AnagramGenerator : MonoBehaviour
         level12.Add("milk;bottles");
 
         // attack
-        /*level11.Add("pizza;boxes");
+        level13.Add("pizza;boxes");
+        level13.Add("tea;boxes");
+        level13.Add("water;bottles");
+        level13.Add("apples;bags");
+        level13.Add("popcorn;packs");
+        level13.Add("milk;bottles");
+
+        // heal
+        level14.Add("shampoo;bottles");
+        level14.Add("bread;bags");
+        level14.Add("oranges;bags");
+        level14.Add("lemonade;bottles");
+
+        /*level11.Add("tea;boxes");
+        listWords.Add("water;bottles");
+        listWords.Add("apples;bags");
+        listWords.Add("popcorn;packs");
+        listWords.Add("milk;bottles");
 
         level12.Add("cookies;boxes");
         level11.Add("milk;boxes");
         level11.Add("cereal;boxes");
         level11.Add("eggs;boxes");
-        level11.Add("tea bags;boxes");
+        level11.Add("tea;boxes");
         level11.Add("pizza;boxes");
         
 
