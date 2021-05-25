@@ -8,6 +8,7 @@ public class Game : MonoBehaviour {
     [SerializeField] GameObject playerPrefab;
     [SerializeField] Transform npcSpawn;
     [SerializeField] Transform playerSpawn;
+    [SerializeField] GameObject npc;
 
     private void Start() {
         GameEvents.current.OnNPCDestroyed += AddNPC;
@@ -16,7 +17,7 @@ public class Game : MonoBehaviour {
     }
 
     public void AddNPC() {
-        creator.RandomCharacter(npcSpawn);
+        npc = creator.RandomCharacter(npcSpawn);
     }
 
 }
