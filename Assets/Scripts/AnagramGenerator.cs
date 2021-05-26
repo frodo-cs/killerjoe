@@ -208,6 +208,7 @@ public class AnagramGenerator : MonoBehaviour
         string finalPage = "";
         char[] letters = ToCharArray(word);
         int index = 0;
+
         foreach(string word in listWords){
             word = word.Replace(letters[index], "<b>" + letters[index] + "</b>");
             string[] subWord = word.Split(';');

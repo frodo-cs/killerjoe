@@ -16,7 +16,7 @@ public class Player : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetButtonDown("Jump") && waypoint.occupied) {
+        if (Input.GetKeyDown(KeyCode.Return) && waypoint.occupied) {
             GameEvents.current.PuzzleSolvedTrigger();
             SolvingPuzzle = true;
         }

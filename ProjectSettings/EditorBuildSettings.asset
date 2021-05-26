@@ -30,9 +30,6 @@ EditorBuildSettings:
     path: Assets/Scenes/CajeroPerdonaAsesino.unity
     guid: 4139fd1f2ac62ff42ad3e6d5f68fc589
   - enabled: 1
-    path: Assets/Scenes/CajeroPerdonaCliente.unity
-    guid: 4fc4a4c5dd1c3634f9dc2dd35630b0b2
-  - enabled: 1
     path: Assets/Scenes/CajeroPerdonaJefe.unity
     guid: 429e7a5e18e95d64eb985fb8336ec592
   - enabled: 1

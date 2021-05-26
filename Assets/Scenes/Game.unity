@@ -2452,7 +2452,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 129528825}
   GUI: {fileID: 578346559}
-  controls: {fileID: 0}
   page: {fileID: 1470000792}
   textFull: {fileID: 1623609028}
   inputField: {fileID: 504844000}
