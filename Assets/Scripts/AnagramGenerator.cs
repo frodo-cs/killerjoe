@@ -204,12 +204,15 @@ public class AnagramGenerator : MonoBehaviour
 */
     }
 
-    string generatePageProducts(List<string> listWords ){
+    string generatePageProducts(List<string> listWords, string word){
         string finalPage = "";
-        
+        char[] letters = ToCharArray(word);
+        int index = 0;
         foreach(string word in listWords){
+            word = word.Replace(letters[index], "<b>" + letters[index] + "</b>");
             string[] subWord = word.Split(';');
             finalPage = finalPage + Random.Range(0, 10) + " " + subWord[1] + " of " + subWord[0] + ".\n";
+            index++;
         }
         return finalPage;
     }
