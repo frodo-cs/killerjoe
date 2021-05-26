@@ -27,11 +27,11 @@ namespace Assets.Scripts.Story {
                 storyText.text = text[current - 1];
                 if(current <= sprites.Count)
                     CreateFrame();
-                if(current == sprites.Count) {
-                    buttonText.text = "< Start >";
+                if(current == text.Count) {
+                    buttonText.text = "< Continue >";
                 }
             } else {
-                SceneManager.LoadScene("Game");
+                SceneManager.LoadScene("HowTo");
             }
         }
 

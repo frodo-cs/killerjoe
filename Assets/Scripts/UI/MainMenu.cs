@@ -4,11 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-    [SerializeField] GameObject controls;
     [SerializeField] GameObject credits;
     [SerializeField] GameObject menu;
 
-    bool controlsEnabled = false;
     bool creditsEnabled = false;
 
     private void Start() {
@@ -18,24 +16,16 @@ public class MainMenu : MonoBehaviour {
     }
 
     private void Update() {
-        controls.SetActive(controlsEnabled && !creditsEnabled);
-        credits.SetActive(creditsEnabled && !controlsEnabled);
-        menu.SetActive(!controlsEnabled && !creditsEnabled);
-    }
-
-    public void Controls() {
-        controlsEnabled = true;
-        creditsEnabled = false;
+        credits.SetActive(creditsEnabled);
+        menu.SetActive(!creditsEnabled);
     }
 
     public void Credits() {
         creditsEnabled = true;
-        controlsEnabled = false;
     }
 
     public void Back() {
         creditsEnabled = false;
-        controlsEnabled = false;
     }
 
     public void Play() {

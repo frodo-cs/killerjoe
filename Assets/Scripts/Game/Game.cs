@@ -4,12 +4,18 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour {
 
+    public static Game game;
     [SerializeField] CharacterCreator creator;
     [SerializeField] Transform npcSpawn;
     [SerializeField] GameObject npc;
 
     private void Awake() {
-        DontDestroyOnLoad(gameObject);    
+        if (game == null) {
+            DontDestroyOnLoad(gameObject);
+            game = this;
+        } else if (game != this) {
+            Destroy(gameObject);
+        }
     }
 
     private void Start() {

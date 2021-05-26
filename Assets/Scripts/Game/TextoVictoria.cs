@@ -11,6 +11,7 @@ public class TextoVictoria : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = true;
         text.SetActive(false);
         text1.SetActive(false);
         soundWellDone = GetComponent<AudioSource>();
