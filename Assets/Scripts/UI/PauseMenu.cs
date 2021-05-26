@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 using System.Collections.Generic;
 
 public class PauseMenu : MonoBehaviour {
@@ -10,18 +11,19 @@ public class PauseMenu : MonoBehaviour {
     [SerializeField] GameObject GUI;
     [SerializeField] GameObject controls;
     [SerializeField] GameObject page;
-    [SerializeField] Text textFull;
+    [SerializeField] TextMeshProUGUI textFull;
     [SerializeField] GameObject inputField;
+    [SerializeField] PuzzleSolve puzzle;
     private bool controlsEnabled = false;
 
     private string finalWordAssigned = "";
-    private int finalWordIndex = 0;
     private List<string> listFinalWords = new List<string>();
     private List<string> listFinalPages = new List<string>();
     private List<bool> listNPCType = new List<bool>();
-    
+
+
     #region Fill data
-    private void fillLists(){
+    private void fillLists() {
         listFinalWords.Add("death");
         listNPCType.Add(true);
         listFinalPages.Add("Esta es la lista de copras \n Esta es la linea 2\n y la linea 3");
@@ -46,73 +48,79 @@ public class PauseMenu : MonoBehaviour {
     }
 
     private void ShowPage() {
-        page.SetActive(true);
-        inputField.SetActive(true);
-
-        //textFull.text = listFinalPages[finalWordIndex];
-        finalWordAssigned = listFinalWords[finalWordIndex];
+        puzzle = GameObject.FindGameObjectWithTag("Puzzle").GetComponent<PuzzleSolve>();
+        if(puzzle.finalWordIndex < listFinalWords.Count) {
+            Cursor.visible = true;
+            page.SetActive(true);
+            inputField.SetActive(true);
+            Player.SolvingPuzzle = true;
+            textFull.text = listFinalPages[puzzle.finalWordIndex];
+            finalWordAssigned = listFinalWords[puzzle.finalWordIndex];
+        } 
     }
 
-    
+
 
     private void HidePage() {
 
         inputField.SetActive(false);
         page.SetActive(false);
-
-        string sceneToOpen = checkAnswer(finalWordAssigned,getTextFromInput(),listNPCType[finalWordIndex]);
-        openScene(sceneToOpen);
-        finalWordIndex++;
+        string sceneToOpen = checkAnswer(finalWordAssigned, getTextFromInput(), listNPCType[puzzle.finalWordIndex], puzzle.finalWordIndex == listNPCType.Count-1);
+        if (sceneToOpen != "None")
+            openScene(sceneToOpen);
+        Cursor.visible = false;
+        Player.SolvingPuzzle = false;
+        puzzle.finalWordIndex++;
+        inputField.GetComponent<InputField>().text = "";
     }
 
     #endregion
 
     #region Annagram functions
-    public void loadlevel(string level)
-    {
+    public void loadlevel(string level) {
         SceneManager.LoadScene(level);
-    
-    }
-    
 
-    private string getTextFromInput(){
+    }
+
+
+    private string getTextFromInput() {
         GameObject inputFieldGo = inputField;
         InputField inputFieldCo = inputFieldGo.GetComponent<InputField>();
-        return inputFieldCo.text ;
+        return inputFieldCo.text.Replace(" ", "");
     }
 
     // Check if the word in the inputField is the finalWord
-    public string checkAnswer(string finalWord, string word, bool npcType){
-        
+    public string checkAnswer(string finalWord, string word, bool npcType, bool boss) {
+
         // Clean text
-        word.Replace(" ","");
-        word.Replace("\n","");
-        
-        if(word == finalWord){
-            if(npcType){
-                return "Mato Asesino";
+        word.Replace(" ", "");
+        word.Replace("\n", "");
+
+        if (word == finalWord) {
+            if (npcType) {
+                return "CajeroMataAsesino";
+            } else if (boss) {
+                return "CajeroMataJefe";
+            } else {
+                return "None";
             }
-            else{
-                return "Perdono NPC";
+        } else {
+            if (npcType) {
+                return "CajeroPerdonaAsesino";
+            } else if (boss) {
+                return "CajeroPerdonaJefe";
+            } else {
+                return "CajeroMataCliente";
             }
         }
-        else{
-            if(npcType){
-                return "Perdono Asesino";
-            }
-            else{
-                return "Mato NPC";
-            }
-        }
-        return "";
     }
 
     #endregion
 
     #region Controls
 
-    private void openScene(string scene){
-
+    private void openScene(string scene) {
+        SceneManager.LoadScene(scene);
     }
 
     private void Update() {

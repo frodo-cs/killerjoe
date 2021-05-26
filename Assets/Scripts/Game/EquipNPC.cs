@@ -24,6 +24,7 @@ public class EquipNPC : MonoBehaviour {
 
         manager.materials = temp.materials;
         manager.AddMaterials();
+        Destroy(GameObject.FindGameObjectWithTag("Game"));
     }
 
     // Update is called once per frame
