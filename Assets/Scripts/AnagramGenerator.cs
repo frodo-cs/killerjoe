@@ -8,6 +8,8 @@ public class AnagramGenerator : MonoBehaviour
     // Start is called before the first frame update
     
     List<List<string>> levels = new List<List<string>>();
+    List<string> finalWords = new List<string>();
+    List<bool> npcTypes = new List<bool>();
     
     List<string> level1 = new List<string>();
     List<string> level2 = new List<string>();
@@ -34,12 +36,17 @@ public class AnagramGenerator : MonoBehaviour
         level1.Add("fanta;bottles");
         level1.Add("shampoo;bottles");
         levels.Add(level1);
+        finalWords.Add("death");
+        npcTypes.Add(true);
+
         // kill
         level2.Add("lemonade;bottles");
         level2.Add("waffle mix;packs");
         level2.Add("cookies;boxes");
         level2.Add("milk;bottles");
         levels.Add(level2);
+        finalWords.Add("kill");
+        npcTypes.Add(true);
 
         // attack
         level3.Add("pizza;boxes");
@@ -49,6 +56,8 @@ public class AnagramGenerator : MonoBehaviour
         level3.Add("popcorn;packs");
         level3.Add("milk;bottles");
         levels.Add(level3);
+        finalWords.Add("attack");
+        npcTypes.Add(true);
 
         // heal
         level4.Add("shampoo;bottles");
@@ -56,6 +65,8 @@ public class AnagramGenerator : MonoBehaviour
         level4.Add("oranges;bags");
         level4.Add("lemonade;bottles");
         levels.Add(level4);
+        finalWords.Add("heal");
+        npcTypes.Add(false);
 
         // love
         level5.Add("cereal;boxes");
@@ -63,6 +74,8 @@ public class AnagramGenerator : MonoBehaviour
         level5.Add("gravy;packs");
         level5.Add("waffle mix;packs");
         levels.Add(level5);
+        finalWords.Add("love");
+        npcTypes.Add(false);
 
         // food
         level6.Add("flour;bags");
@@ -70,6 +83,8 @@ public class AnagramGenerator : MonoBehaviour
         level6.Add("antibiotic;bottles");
         level6.Add("bread;bags");
         levels.Add(level6);
+        finalWords.Add("food");
+        npcTypes.Add(false);
 
         // pistol
         level7.Add("syrup;bottles");
@@ -79,6 +94,8 @@ public class AnagramGenerator : MonoBehaviour
         level7.Add("tomatoes;bags");
         level7.Add("lemonade;bottles");
         levels.Add(level7);
+        finalWords.Add("pistol");
+        npcTypes.Add(true);
 
         // vodka
         level8.Add("gravy;packs");
@@ -87,6 +104,8 @@ public class AnagramGenerator : MonoBehaviour
         level8.Add("cakes;packs");
         level8.Add("antibiotic;bottles");
         levels.Add(level8);
+        finalWords.Add("vodka");
+        npcTypes.Add(true);
 
         // fruit
         level9.Add("fanta;bottles");
@@ -95,6 +114,8 @@ public class AnagramGenerator : MonoBehaviour
         level9.Add("juice;bottles");
         level9.Add("yogurt;bottles");
         levels.Add(level9);
+        finalWords.Add("fruit");
+        npcTypes.Add(false);
 
         // wasted
         level10.Add("wine;bottles");
@@ -104,6 +125,8 @@ public class AnagramGenerator : MonoBehaviour
         level10.Add("waffles mix;packs");
         level10.Add("doughnuts;boxes");
         levels.Add(level10);
+        finalWords.Add("wasted");
+        npcTypes.Add(true);
 
         // damage
         level11.Add("bread;bags");
@@ -113,6 +136,8 @@ public class AnagramGenerator : MonoBehaviour
         level11.Add("grapes;bags");
         level11.Add("cakes;packs");
         levels.Add(level11);
+        finalWords.Add("damage");
+        npcTypes.Add(true);
 
         // romantic
         level12.Add("yogurt;bottles");
@@ -124,6 +149,8 @@ public class AnagramGenerator : MonoBehaviour
         level12.Add("juice;bottles");
         level12.Add("cookies;boxes");
         levels.Add(level12);
+        finalWords.Add("romantic");
+        npcTypes.Add(false);
 
         // assassin
         level13.Add("cola;bottles");
@@ -135,6 +162,8 @@ public class AnagramGenerator : MonoBehaviour
         level13.Add("milk;bottles");
         level13.Add("wine;bottles");
         levels.Add(level13);
+        finalWords.Add("assassin");
+        npcTypes.Add(true);
 
         // healthy
         level14.Add("shampoo;bottles");
@@ -145,6 +174,8 @@ public class AnagramGenerator : MonoBehaviour
         level14.Add("doughnuts;boxes");
         level14.Add("gravy;packs");
         levels.Add(level14);
+        finalWords.Add("healthy");
+        npcTypes.Add(false);
 
         // murdering
         level15.Add("milk;bottles");
@@ -157,6 +188,8 @@ public class AnagramGenerator : MonoBehaviour
         level15.Add("peanuts;boxes");
         level15.Add("eggs;boxes");
         levels.Add(level15);
+        finalWords.Add("murdering");
+        npcTypes.Add(true);
 
         /*
 
@@ -204,13 +237,13 @@ public class AnagramGenerator : MonoBehaviour
 */
     }
 
-    string generatePageProducts(List<string> listWords, string word){
+    string generatePageProducts(List<string> listWords, string pWord){
         string finalPage = "";
-        char[] letters = ToCharArray(word);
+        char[] letters = ToCharArray(pWord);
         int index = 0;
 
         foreach(string word in listWords){
-            word = word.Replace(letters[index], "<b>" + letters[index] + "</b>");
+            pWord = pWord.Replace(letters[index], "<b>" + Char.ToString(letters[index]) + "</b>");
             string[] subWord = word.Split(';');
             finalPage = finalPage + Random.Range(0, 10) + " " + subWord[1] + " of " + subWord[0] + ".\n";
             index++;
