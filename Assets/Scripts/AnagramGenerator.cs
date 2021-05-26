@@ -7,58 +7,158 @@ public class AnagramGenerator : MonoBehaviour
 {
     // Start is called before the first frame update
     
-    List<List<string>> level1 = new List<List<string>>();
+    List<List<string>> levels = new List<List<string>>();
     
+    List<string> level1 = new List<string>();
+    List<string> level2 = new List<string>();
+    List<string> level3 = new List<string>();
+    List<string> level4 = new List<string>();
+    List<string> level5 = new List<string>();
+    List<string> level6 = new List<string>();
+    List<string> level7 = new List<string>();
+    List<string> level8 = new List<string>();
+    List<string> level9 = new List<string>();
+    List<string> level10 = new List<string>();
     List<string> level11 = new List<string>();
     List<string> level12 = new List<string>();
     List<string> level13 = new List<string>();
     List<string> level14 = new List<string>();
     List<string> level15 = new List<string>();
 
-    List<string> level21 = new List<string>();
-    List<string> level22 = new List<string>();
-    List<string> level23 = new List<string>();
-    List<string> level24 = new List<string>();
-    List<string> level25 = new List<string>();
 
-    List<string> level31 = new List<string>();
-    List<string> level32 = new List<string>();
-    List<string> level33 = new List<string>();
-    List<string> level34 = new List<string>();
-    List<string> level35 = new List<string>();
     public void loadWords(){
         // death
-        level11.Add("donuts;boxes");
-        level11.Add("eggs;boxes");
-        level11.Add("cola;bottles");
-        level11.Add("fanta;bottles");
-        level11.Add("shampoo;bottles");
-
+        level1.Add("donuts;boxes");
+        level1.Add("eggs;boxes");
+        level1.Add("cola;bottles");
+        level1.Add("fanta;bottles");
+        level1.Add("shampoo;bottles");
+        levels.Add(level1);
         // kill
-        level12.Add("lemonade;bottles");
-        level12.Add("waffle mix;packs");
-        level12.Add("cookies;boxes");
-        level12.Add("milk;bottles");
+        level2.Add("lemonade;bottles");
+        level2.Add("waffle mix;packs");
+        level2.Add("cookies;boxes");
+        level2.Add("milk;bottles");
+        levels.Add(level2);
 
         // attack
-        level13.Add("pizza;boxes");
-        level13.Add("tea;boxes");
-        level13.Add("water;bottles");
-        level13.Add("apples;bags");
-        level13.Add("popcorn;packs");
-        level13.Add("milk;bottles");
+        level3.Add("pizza;boxes");
+        level3.Add("tea;boxes");
+        level3.Add("water;bottles");
+        level3.Add("apples;bags");
+        level3.Add("popcorn;packs");
+        level3.Add("milk;bottles");
+        levels.Add(level3);
 
         // heal
-        level14.Add("shampoo;bottles");
-        level14.Add("bread;bags");
-        level14.Add("oranges;bags");
-        level14.Add("lemonade;bottles");
+        level4.Add("shampoo;bottles");
+        level4.Add("bread;bags");
+        level4.Add("oranges;bags");
+        level4.Add("lemonade;bottles");
+        levels.Add(level4);
 
-        /*level11.Add("tea;boxes");
-        listWords.Add("water;bottles");
-        listWords.Add("apples;bags");
-        listWords.Add("popcorn;packs");
-        listWords.Add("milk;bottles");
+        // love
+        level5.Add("cereal;boxes");
+        level5.Add("popcorn;packs");
+        level5.Add("gravy;packs");
+        level5.Add("waffle mix;packs");
+        levels.Add(level5);
+
+        // food
+        level6.Add("flour;bags");
+        level6.Add("oranges;bags");
+        level6.Add("antibiotic;bottles");
+        level6.Add("bread;bags");
+        levels.Add(level6);
+
+        // pistol
+        level7.Add("syrup;bottles");
+        level7.Add("milk;bottles");
+        level7.Add("apples;bags");
+        level7.Add("water;bottles");
+        level7.Add("tomatoes;bags");
+        level7.Add("lemonade;bottles");
+        levels.Add(level7);
+
+        // vodka
+        level8.Add("gravy;packs");
+        level8.Add("cola;bottles");
+        level8.Add("doughnuts;boxes");
+        level8.Add("cakes;packs");
+        level8.Add("antibiotic;bottles");
+        levels.Add(level8);
+
+        // fruit
+        level9.Add("fanta;bottles");
+        level9.Add("water;bottles");
+        level9.Add("syrup;bottles");
+        level9.Add("juice;bottles");
+        level9.Add("yogurt;bottles");
+        levels.Add(level9);
+
+        // wasted
+        level10.Add("wine;bottles");
+        level10.Add("tortillas;bags");
+        level10.Add("fishes;bags");
+        level10.Add("tomatoes;bags");
+        level10.Add("waffles mix;packs");
+        level10.Add("doughnuts;boxes");
+        levels.Add(level10);
+
+        // damage
+        level11.Add("bread;bags");
+        level11.Add("apples;bags");
+        level11.Add("tomatoes;bags");
+        level11.Add("peanuts;boxes");
+        level11.Add("grapes;bags");
+        level11.Add("cakes;packs");
+        levels.Add(level11);
+
+        // romantic
+        level12.Add("yogurt;bottles");
+        level12.Add("doughnuts;boxes");
+        level12.Add("lemonade;bottles");
+        level12.Add("potatoes;bags");
+        level12.Add("popcorn;packs");
+        level12.Add("fanta;bottles");
+        level12.Add("juice;bottles");
+        level12.Add("cookies;boxes");
+        levels.Add(level12);
+
+        // assassin
+        level13.Add("cola;bottles");
+        level13.Add("fishes;bags");
+        level13.Add("sugar;bags");
+        level13.Add("pizza;boxes");
+        level13.Add("shampoo;bottles");
+        level13.Add("potatoes;bags");
+        level13.Add("milk;bottles");
+        level13.Add("wine;bottles");
+        levels.Add(level13);
+
+        // healthy
+        level14.Add("shampoo;bottles");
+        level14.Add("eggs;boxes");
+        level14.Add("cereal;boxes");
+        level14.Add("apples;bags");
+        level14.Add("yogurt;bottles");
+        level14.Add("doughnuts;boxes");
+        level14.Add("gravy;packs");
+        levels.Add(level14);
+
+        // murdering
+        level15.Add("milk;bottles");
+        level15.Add("juice;bottles");
+        level15.Add("syrup;bottles");
+        level15.Add("doughnuts;boxes");
+        level15.Add("meat;bags");
+        level15.Add("sugar;bags");
+        level15.Add("fishes;bags");
+        level15.Add("peanuts;boxes");
+        level15.Add("eggs;boxes");
+        levels.Add(level15);
+
+        /*
 
         level12.Add("cookies;boxes");
         level11.Add("milk;boxes");
@@ -66,7 +166,8 @@ public class AnagramGenerator : MonoBehaviour
         level11.Add("eggs;boxes");
         level11.Add("tea;boxes");
         level11.Add("pizza;boxes");
-        
+        level11.Add("peanuts;boxes");
+        level11.Add("doughnuts;boxes");
 
         listWords.Add("wine;bottles");
         listWords.Add("juice;bottles");
@@ -79,11 +180,15 @@ public class AnagramGenerator : MonoBehaviour
         listWords.Add("fanta;bottles");
         listWords.Add("bbq;bottles");
         listWords.Add("syrup;bottles");
+        listWords.Add("yogurt;bottles");
 
         listWords.Add("bread;bags");
+        listWords.Add("grapes;bags");
+        listWords.Add("tortillas;bags");
         listWords.Add("flour;bags");
         listWords.Add("potatoes;bags");
         listWords.Add("meat;bags");
+        listWords.Add("fishes;bags");
         listWords.Add("apples;bags");
         listWords.Add("oranges;bags");
         listWords.Add("pasta;bags");
@@ -91,10 +196,11 @@ public class AnagramGenerator : MonoBehaviour
         listWords.Add("sugar;bags");
 
         listWords.Add("jam;packs");
+        listWords.Add("cakes;packs");
         listWords.Add("gravy;packs");
         listWords.Add("turkey;packs");
         listWords.Add("popcorn;packs");
-        listWords.Add("waffle mix;packs");
+        listWords.Add("waffles mix;packs");
 */
     }
 
@@ -103,21 +209,11 @@ public class AnagramGenerator : MonoBehaviour
         
         foreach(string word in listWords){
             string[] subWord = word.Split(';');
-            finalPage = finalPage + Random.Range(0, 10) + " " + subWord[1] + " of " + subWord[0] + "\n";
+            finalPage = finalPage + Random.Range(0, 10) + " " + subWord[1] + " of " + subWord[0] + ".\n";
         }
         return finalPage;
     }
 
-    /*void loadWordsHash(List<string> wordsList){
-        //lettersMap = new Dictionary<char, string>();
-        foreach(string word in wordsList){
-            foreach(char letter in ToCharArray(word)){
-                
-            }
-        }
-        
-    }
-*/
     static char[] ToCharArray(string Source)
     {
         char[] CharArray = Source.ToLower().ToCharArray();
@@ -125,25 +221,4 @@ public class AnagramGenerator : MonoBehaviour
         return CharArray;
     }
 
-    /*public string getAnagram(string word){
-        foreach(char letter in ToCharArray(word)){
-
-        }
-        return "";
-    }
-*/
-    /*void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-*/
-    /*public string genAnagram(){
-        return "";
-    }*/
 }
