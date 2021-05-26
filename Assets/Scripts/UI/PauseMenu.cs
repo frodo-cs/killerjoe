@@ -9,12 +9,10 @@ public class PauseMenu : MonoBehaviour {
     public static bool GamePaused = false;
     [SerializeField] GameObject pauseUI;
     [SerializeField] GameObject GUI;
-    [SerializeField] GameObject controls;
     [SerializeField] GameObject page;
     [SerializeField] TextMeshProUGUI textFull;
     [SerializeField] GameObject inputField;
     [SerializeField] PuzzleSolve puzzle;
-    private bool controlsEnabled = false;
 
     private string finalWordAssigned = "";
     private List<string> listFinalWords = new List<string>();
@@ -32,9 +30,6 @@ public class PauseMenu : MonoBehaviour {
         listNPCType.Add(false);
         listFinalPages.Add("Esta es la lista de copras \n Esta es la linea 2\n y la linea 3");
 
-        listFinalWords.Add("kill");
-        listNPCType.Add(true);
-        listFinalPages.Add("Esta es la lista de copras \n Esta es la linea 2\n y la linea 3");
     }
 
     #endregion
@@ -56,7 +51,8 @@ public class PauseMenu : MonoBehaviour {
             Player.SolvingPuzzle = true;
             textFull.text = listFinalPages[puzzle.finalWordIndex];
             finalWordAssigned = listFinalWords[puzzle.finalWordIndex];
-        } 
+        }
+        Debug.Log($"{puzzle.finalWordIndex} {listNPCType.Count}");
     }
 
 
@@ -124,7 +120,7 @@ public class PauseMenu : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape) && !Player.SolvingPuzzle && !controlsEnabled) {
+        if (Input.GetKeyDown(KeyCode.Escape) && !Player.SolvingPuzzle) {
             SetPause(!GamePaused);
         }
     }
@@ -149,13 +145,14 @@ public class PauseMenu : MonoBehaviour {
         Cursor.visible = !p ^ !c;
         GUI.SetActive(!p && !c);
         pauseUI.SetActive(p && !c);
-        controls.SetActive(!p && c);
         Time.timeScale = p || c ? 0f : 1f;
         GamePaused = p && c;
     }
 
     public void Menu() {
         Time.timeScale = 1f;
+        Destroy(GameObject.FindGameObjectWithTag("Game"));
+        Destroy(GameObject.FindGameObjectWithTag("Puzzle"));
         SceneManager.LoadScene("Menu");
     }
 

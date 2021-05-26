@@ -11,6 +11,7 @@ public class TextoMuerte : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = true;
         text.SetActive(false);
         
         soundWellDone = GetComponent<AudioSource>();
@@ -25,6 +26,7 @@ public class TextoMuerte : MonoBehaviour
     }
 
     public void Return() {
+        Cursor.visible = false;
         SceneManager.LoadScene("Game");
     }
 
