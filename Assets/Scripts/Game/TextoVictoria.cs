@@ -25,7 +25,7 @@ public class TextoVictoria : MonoBehaviour
     }
 
     public void Menu() {
-        Destroy(GameObject.FindGameObjectWithTag("Game"));
+        Destroy(GameObject.FindGameObjectWithTag("Puzzle"));
         SceneManager.LoadScene("Menu");
     }
 

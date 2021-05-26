@@ -9,6 +9,11 @@ TagManager:
   - Exit
   - NPC
   - Game
+  - Puzzle
+  - Page
+  - Input
+  - Text
+  - Solved
   layers:
   - Default
   - TransparentFX
