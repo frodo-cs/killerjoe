@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour {
 
-
     private GameObject payingArea;
     private GameObject exit;
     private Transform targetWaypoint;
     private Animator animator;
     private float minDistance = 0.1f;
     private float speed = 2.0f;
-    private bool enemy = false;
+    [HideInInspector] public bool enemy = false;
     private bool payingTriggered = false;
 
     private void Awake() {

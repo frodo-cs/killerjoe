@@ -8,6 +8,7 @@ TagManager:
   - Payment
   - Exit
   - NPC
+  - Game
   layers:
   - Default
   - TransparentFX

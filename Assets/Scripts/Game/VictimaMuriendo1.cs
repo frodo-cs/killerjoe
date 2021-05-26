@@ -6,12 +6,10 @@ using UnityEngine.SceneManagement;
 public class VictimaMuriendo1 : MonoBehaviour
 {
     public Animator animator;
-   
+
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
-
         StartCoroutine(Waiting(0.7f));
     }
 
