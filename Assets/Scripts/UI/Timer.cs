@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour {
     [SerializeField] float maxTime;
     [SerializeField] TextMeshProUGUI textTime;
 
-    float time = 10;
+    float time = 40;
     bool timerOn = false;
 
     private void Start() {

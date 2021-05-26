@@ -9,6 +9,7 @@ public class AnagramGenerator
     
     public List<List<string>> levels = new List<List<string>>();
     public List<string> finalWords = new List<string>();
+    public List<string> finalPages = new List<string>();
     public List<bool> npcTypes = new List<bool>();
     
     List<string> level1 = new List<string>();
@@ -189,7 +190,13 @@ public class AnagramGenerator
         level15.Add("eggs;boxes");
         levels.Add(level15);
         finalWords.Add("murdering");
-        npcTypes.Add(true);
+        npcTypes.Add(true); 
+
+        int indexx = 0;
+        foreach (List<string> anagram in levels) {
+            finalPages.Add(generatePageProducts(anagram, finalWords[indexx]));
+            indexx++;
+        }
 
         /*
 
@@ -242,12 +249,12 @@ public class AnagramGenerator
         char[] letters = ToCharArray(pWord);
         int index = 0;
 
-        foreach(string word in listWords){
-            pWord = pWord.Replace(System.Char.ToString(letters[index]), "<b>" + System.Char.ToString(letters[index]) + "</b>");
-            string[] subWord = word.Split(';');
+        for(index = 0; index < listWords.Count; index++) {
+            listWords[index] = listWords[index].Replace(System.Char.ToString(letters[index]), "<b>" + System.Char.ToString(letters[index]) + "</b>");
+            string[] subWord = listWords[index].Split(';');
             finalPage = finalPage + Random.Range(0, 10) + " " + subWord[1] + " of " + subWord[0] + ".\n";
-            index++;
         }
+
         return finalPage;
     }
 

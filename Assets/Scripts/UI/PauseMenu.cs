@@ -42,13 +42,14 @@ public class PauseMenu : MonoBehaviour {
         generator.loadWords();
         listFinalWords = generator.finalWords;
         listNPCType = generator.npcTypes;
+        listFinalPages = generator.finalPages;
 
-        fillLists();
+        //fillLists();
     }
 
     private void ShowPage() {
         puzzle = GameObject.FindGameObjectWithTag("Puzzle").GetComponent<PuzzleSolve>();
-        if(puzzle.finalWordIndex < listFinalWords.Count) {
+        if (puzzle.finalWordIndex < listFinalWords.Count) {
             Cursor.visible = true;
             page.SetActive(true);
             inputField.SetActive(true);
@@ -56,21 +57,19 @@ public class PauseMenu : MonoBehaviour {
             textFull.text = listFinalPages[puzzle.finalWordIndex];
             finalWordAssigned = listFinalWords[puzzle.finalWordIndex];
         }
-        Debug.Log($"{puzzle.finalWordIndex} {listNPCType.Count}");
+
     }
-
-
 
     private void HidePage() {
 
         inputField.SetActive(false);
         page.SetActive(false);
-        string sceneToOpen = checkAnswer(finalWordAssigned, getTextFromInput(), listNPCType[puzzle.finalWordIndex], puzzle.finalWordIndex == listNPCType.Count-1);
+        puzzle.finalWordIndex++;
+        string sceneToOpen = checkAnswer(finalWordAssigned, getTextFromInput(), listNPCType[puzzle.finalWordIndex-1], puzzle.finalWordIndex == listNPCType.Count);
         if (sceneToOpen != "None")
             openScene(sceneToOpen);
         Cursor.visible = false;
-        Player.SolvingPuzzle = false;
-        puzzle.finalWordIndex++;
+        Player.SolvingPuzzle = false;      
         inputField.GetComponent<InputField>().text = "";
     }
 
@@ -91,13 +90,12 @@ public class PauseMenu : MonoBehaviour {
 
     // Check if the word in the inputField is the finalWord
     public string checkAnswer(string finalWord, string word, bool npcType, bool boss) {
-
         // Clean text
         word.Replace(" ", "");
         word.Replace("\n", "");
 
         if (word == finalWord) {
-            if (npcType) {
+            if (npcType && !boss) {
                 return "CajeroMataAsesino";
             } else if (boss) {
                 return "CajeroMataJefe";
@@ -105,7 +103,7 @@ public class PauseMenu : MonoBehaviour {
                 return "None";
             }
         } else {
-            if (npcType) {
+            if (npcType && !boss) {
                 return "CajeroPerdonaAsesino";
             } else if (boss) {
                 return "CajeroPerdonaJefe";
