@@ -49,7 +49,7 @@ public class PauseMenu : MonoBehaviour {
         page.SetActive(true);
         inputField.SetActive(true);
 
-        textFull.text = listFinalPages[finalWordIndex];
+        //textFull.text = listFinalPages[finalWordIndex];
         finalWordAssigned = listFinalWords[finalWordIndex];
     }
 
