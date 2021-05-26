@@ -34,7 +34,7 @@ public class Timer : MonoBehaviour {
             textTime.text = string.Format("Time Left: {0}", time.ToString("0"));
         } else if (time <= 0) {
             textTime.text = "0";
-            GameEvents.current.GameLostTrigger();
+            GameEvents.current.GameLostTimeTrigger();
         }
     }
 }
