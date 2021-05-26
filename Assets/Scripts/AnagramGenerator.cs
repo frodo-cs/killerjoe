@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 //using System.Collections.Generic.Dictionary;
 
-public class AnagramGenerator : MonoBehaviour
+public class AnagramGenerator
 {
     // Start is called before the first frame update
     
-    List<List<string>> levels = new List<List<string>>();
-    List<string> finalWords = new List<string>();
-    List<bool> npcTypes = new List<bool>();
+    public List<List<string>> levels = new List<List<string>>();
+    public List<string> finalWords = new List<string>();
+    public List<bool> npcTypes = new List<bool>();
     
     List<string> level1 = new List<string>();
     List<string> level2 = new List<string>();
@@ -243,7 +243,7 @@ public class AnagramGenerator : MonoBehaviour
         int index = 0;
 
         foreach(string word in listWords){
-            pWord = pWord.Replace(letters[index], "<b>" + Char.ToString(letters[index]) + "</b>");
+            pWord = pWord.Replace(System.Char.ToString(letters[index]), "<b>" + System.Char.ToString(letters[index]) + "</b>");
             string[] subWord = word.Split(';');
             finalPage = finalPage + Random.Range(0, 10) + " " + subWord[1] + " of " + subWord[0] + ".\n";
             index++;

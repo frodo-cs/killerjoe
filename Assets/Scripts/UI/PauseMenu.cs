@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviour {
     private List<string> listFinalWords = new List<string>();
     private List<string> listFinalPages = new List<string>();
     private List<bool> listNPCType = new List<bool>();
+    AnagramGenerator generator = new AnagramGenerator();
 
 
     #region Fill data
@@ -38,6 +39,9 @@ public class PauseMenu : MonoBehaviour {
     private void Start() {
         GameEvents.current.OnPuzzleSolved += HidePage;
         GameEvents.current.OnPayingPosition += ShowPage;
+        generator.loadWords();
+        listFinalWords = generator.finalWords;
+        listNPCType = generator.npcTypes;
 
         fillLists();
     }
