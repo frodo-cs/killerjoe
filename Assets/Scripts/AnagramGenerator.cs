@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 //using System.Collections.Generic.Dictionary;
 
-private static class ShuffleClass(){
-    private static Random rng = new Random();  
+public static class ShuffleClass {
+    private static System.Random rng = new System.Random();  
 
-    static void Shuffle<T>(this IList<T> list)  
+    public static void Shuffle<T>(this IList<T> list)  
     {  
         int n = list.Count;  
         while (n > 1) {  
@@ -18,6 +18,8 @@ private static class ShuffleClass(){
         }  
     }
 }
+
+
 public class AnagramGenerator
 {
     // Start is called before the first frame update
@@ -26,7 +28,8 @@ public class AnagramGenerator
     public List<string> finalWords = new List<string>();
     public List<string> finalPages = new List<string>();
     public List<bool> npcTypes = new List<bool>();
-    
+    private static System.Random rng = new System.Random();
+
     List<string> level1 = new List<string>();
     List<string> level2 = new List<string>();
     List<string> level3 = new List<string>();
@@ -42,7 +45,6 @@ public class AnagramGenerator
     List<string> level13 = new List<string>();
     List<string> level14 = new List<string>();
     List<string> level15 = new List<string>();
-
 
     public void loadWords(){
         // death

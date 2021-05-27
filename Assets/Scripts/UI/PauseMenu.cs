@@ -20,21 +20,6 @@ public class PauseMenu : MonoBehaviour {
     private List<bool> listNPCType = new List<bool>();
     AnagramGenerator generator = new AnagramGenerator();
 
-
-    #region Fill data
-    private void fillLists() {
-        listFinalWords.Add("death");
-        listNPCType.Add(true);
-        listFinalPages.Add("Esta es la lista de copras \n Esta es la linea 2\n y la linea 3");
-
-        listFinalWords.Add("love");
-        listNPCType.Add(false);
-        listFinalPages.Add("Esta es la lista de copras \n Esta es la linea 2\n y la linea 3");
-
-    }
-
-    #endregion
-
     #region Trigger functions
     private void Start() {
         GameEvents.current.OnPuzzleSolved += HidePage;
@@ -44,7 +29,6 @@ public class PauseMenu : MonoBehaviour {
         listNPCType = generator.npcTypes;
         listFinalPages = generator.finalPages;
 
-        //fillLists();
     }
 
     private void ShowPage() {
@@ -53,7 +37,7 @@ public class PauseMenu : MonoBehaviour {
             Cursor.visible = true;
             page.SetActive(true);
             inputField.SetActive(true);
-            Player.SolvingPuzzle = true;
+            Game.SolvingPuzzle = true;
             textFull.text = listFinalPages[puzzle.finalWordIndex];
             finalWordAssigned = listFinalWords[puzzle.finalWordIndex];
         }
@@ -66,11 +50,10 @@ public class PauseMenu : MonoBehaviour {
         page.SetActive(false);
         puzzle.finalWordIndex++;
         string sceneToOpen = checkAnswer(finalWordAssigned, getTextFromInput(), listNPCType[puzzle.finalWordIndex-1], puzzle.finalWordIndex == listNPCType.Count);
-        if (sceneToOpen != "None")
-            openScene(sceneToOpen);
-        Cursor.visible = false;
-        Player.SolvingPuzzle = false;      
         inputField.GetComponent<InputField>().text = "";
+        Game.SolvingPuzzle = false;
+        if (sceneToOpen != "None")
+            openScene(sceneToOpen);     
     }
 
     #endregion
@@ -122,7 +105,7 @@ public class PauseMenu : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape) && !Player.SolvingPuzzle) {
+        if (Input.GetKeyDown(KeyCode.Escape) && !Game.SolvingPuzzle) {
             SetPause(!GamePaused);
         }
     }

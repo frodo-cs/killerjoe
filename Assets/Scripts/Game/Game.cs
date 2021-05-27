@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour {
 
+    public static bool SolvingPuzzle = false;
     public static Game game;
     [SerializeField] CharacterCreator creator;
     [SerializeField] Transform npcSpawn;
