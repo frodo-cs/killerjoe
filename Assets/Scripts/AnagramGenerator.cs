@@ -3,6 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 //using System.Collections.Generic.Dictionary;
 
+private static class ShuffleClass(){
+    private static Random rng = new Random();  
+
+    static void Shuffle<T>(this IList<T> list)  
+    {  
+        int n = list.Count;  
+        while (n > 1) {  
+            n--;  
+            int k = rng.Next(n + 1);  
+            T value = list[k];  
+            list[k] = list[n];  
+            list[n] = value;  
+        }  
+    }
+}
 public class AnagramGenerator
 {
     // Start is called before the first frame update
@@ -41,9 +56,9 @@ public class AnagramGenerator
         npcTypes.Add(true);
 
         // kill
-        level2.Add("lemonade;bottles");
-        level2.Add("waffle mix;packs");
-        level2.Add("cookies;boxes");
+        level2.Add("kiwis;boxes");
+        level2.Add("pizza mix;packs");
+        level2.Add("lemonade;boxes");
         level2.Add("milk;bottles");
         levels.Add(level2);
         finalWords.Add("kill");
@@ -244,15 +259,22 @@ public class AnagramGenerator
 */
     }
 
+    
     string generatePageProducts(List<string> listWords, string pWord){
         string finalPage = "";
         char[] letters = ToCharArray(pWord);
         int index = 0;
-
+        List<string> listTemp = new List<string>();
         for(index = 0; index < listWords.Count; index++) {
             listWords[index] = listWords[index].Replace(System.Char.ToString(letters[index]), "<b>" + System.Char.ToString(letters[index]) + "</b>");
             string[] subWord = listWords[index].Split(';');
-            finalPage = finalPage + Random.Range(0, 10) + " " + subWord[1] + " of " + subWord[0] + ".\n";
+            listTemp.Add(Random.Range(0, 10) + " " + subWord[1] + " of " + subWord[0] + ".\n");
+        }
+        // Randomize list
+        listTemp.Shuffle();
+
+        foreach(string phrase in listTemp){
+            finalPage = finalPage + phrase;
         }
 
         return finalPage;
