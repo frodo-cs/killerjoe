@@ -8820,8 +8820,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e5b36a21f03e3846bdb2c63fa4fbf4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  time: 0.5
+  animator: {fileID: 3827399709997452952}
+  time: 0.2
 --- !u!82 &7545319079592676954
 AudioSource:
   m_ObjectHideFlags: 0
