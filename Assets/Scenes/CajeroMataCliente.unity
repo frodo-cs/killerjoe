@@ -8675,7 +8675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  time: 0.6
+  time: 0.7
 --- !u!82 &7545319079139567253
 AudioSource:
   m_ObjectHideFlags: 0
